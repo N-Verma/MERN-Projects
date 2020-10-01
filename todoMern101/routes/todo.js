@@ -14,9 +14,9 @@ router .get('/todos',function(req,res){
 
 router .post('/todos/add',function(req,res){
     let val=req.body.value;
-    let date = req.body.due_date;
-    let cat = req.body.category;
     let done = req.body.done;
+    let cat = req.body.category;
+    let date = req.body.due_date;
     let todo = new Todo({
         value:val,
         due_date:date,
@@ -30,7 +30,7 @@ router .post('/todos/add',function(req,res){
             
         })
         .catch(err => {
-            res.status(400).send('adding new todo failed');
+            res.status(400).send('Adding a new todo failed');
         });
 })
 
@@ -39,7 +39,7 @@ router .delete('/todos/delete/:id',function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.json({'msg':'deleted successfully'});
+            res.json({'message':'deleted successfully'});
         }
     })
 })
